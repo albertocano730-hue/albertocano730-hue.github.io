@@ -1,0 +1,322 @@
+<html>
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENTRETENIMIENTO - Farmacia Santaella</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+ 
+    h2, h1 {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+ 
+    /* --- ESTILOS DE MENÚ UNIFICADOS --- */
+        td { position: relative; }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 999;
+            min-width: 200px;
+            padding: 0;
+        }
+
+        /* Unificación de letra para todos los submenús */
+        .submenu a, .subsubmenu a {
+            display: block;
+            padding: 12px 15px;
+            text-align: left;
+            font-family: "Arial Narrow", Arial, sans-serif; /* Unificado */
+            font-size: 15px;
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: normal;
+        }
+
+        .submenu a:hover, .subsubmenu a:hover {
+            background-color: #e6f7f5;
+            color: #008080;
+        }
+
+        td:hover .submenu {
+            display: block;
+        }
+
+        .submenu-item { position: relative; }
+
+        .submenu-item:hover .subsubmenu {
+            display: block;
+        }
+
+        .subsubmenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-left: -1px;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            min-width: 150px;
+            z-index: 99999;
+        }
+        
+        /* Estilo para los links de la tabla principal */
+        table a {
+            text-decoration: none;
+            color: black;
+        }
+    
+    /* =========================================== */
+ 
+    .tarjeta-entre {
+      background-color: #ffffff;
+      border: 2px solid #55dfd8;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 15px 0;
+      padding: 20px;
+      text-align: left;
+      font-family: Arial;
+      transition: transform 0.3s ease;
+    }
+.tarjeta-entre {
+    display: flex;       /* Alinea los hijos en una fila */
+    align-items: center; /* Centra verticalmente la imagen con el texto */
+    padding: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.tarjeta-entre img {
+    width: 25%;          /* Mantiene el tamaño que pediste */
+    height: auto;        /* Evita que la imagen se deforme */
+    margin-right: 15px;  /* Da espacio entre la imagen y el texto */
+}
+
+.contenido-texto {
+    flex: 1;             /* Hace que el texto ocupe el resto del espacio */
+    text-align: justify; /* Justifica el texto */
+    font-size: 18px;     /* Equivale al SIZE=4 que tenías */
+}
+
+.contenido-texto b {
+    display: block;      /* Hace que el título esté en su propia línea */
+    margin-bottom: 5px;
+    text-align: center;  /* Mantiene el título centrado si lo deseas */
+}
+ 
+    .tarjeta-entre:hover {
+      transform: scale(1.02);
+    }
+ 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+ 
+<body bgcolor="WHITE">
+  <CENTER>
+        <IMG SRC="ENCABEZADO.BUENO.PNG" WIDTH="100%" height="20%">
+    
+    <HR WIDTH="100%" SIZE=25 COLOR="55dfd8">
+    
+    <TABLE BORDER="5" BORDERCOLOR="55dfd8" BGCOLOR="WHITE" WIDTH=100% STYLE="border-collapse: collapse;">
+        <TR>
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="index.html.HTML">INICIO</a>
+                </FONT></B></CENTER>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">FILOSOFÍA</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="quienes-somos.html">Quiénes Somos</a>
+                    <a href="MISION.html">Misión</a>
+                    <a href="VISIÓN.html">Visión</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">SERVICIOS MÉDICOS</a></FONT></B></CENTER>
+          <div class="submenu">
+         <a href="Traumatología.html">Traumatología y Ortopedia</a>
+         <a href="Ginecología.html">Ginecología y Obstetrícia</a>
+         <a href="pediatría.html">Pediatría</a>
+         <a href="Oftalmología.html">Oftalmología</a>
+         <a href="Nutrición.html">Nutrición</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">MEDICAMENTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Medicamentos_patente.html">Patentes</a>
+                    <a href="Medicamentos_genericos.html">Genéricos</a>
+                    <a href="Medicamentos_controlados.html">Controlados</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">PRODUCTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Higiene.html">Higiene personal</a>
+                    <a href="Perfumeria.html">Perfumería</a>
+                    <a href="Bebé.html">Bebés</a>
+                    <div class="submenu-item">
+                        <a href="javascript:void(0)">Abarrotes ▸</a>
+                        <div class="subsubmenu">
+                            <a href="Snacks.html">Snacks</a>
+                            <a href="Bebidas.html">Bebidas</a>
+                        </div>
+                    </div>
+                    <a href="Curacion.html">Material de curación</a>
+                    <a href="Instrumentos.html">Instrumentos médicos</a>
+                    <a href="Vitaminas.html">Vitaminas</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">SUCURSALES</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="colotepec.html">Colotepec</a>
+                    <a href="ortopedico.html">Consultorio Ortopédico</a>
+                    <a href="ventanilla.html">Ventanilla</a>
+                    <a href="puerto.html">Puerto Escondido</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">PAGO DE SERVICIOS</a></FONT></B></CENTER>
+          <div class="submenu">
+            <a href="HOGAR Y ENERGÍA.html">Hogar y Energía</a>
+            <a href="TELECOMUNICACIONES.html">Telecomunicaciones</a>
+            <a href="ENTRETENIMIENTO.html">Entretenimiento</a>
+            <a href="VENTA POR CATÁLOGO.html">Venta por catálogo</a>
+            <a href="RECARGAS TELEFÓNICAS.html">Recargas Telefónicas</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">CONTÁCTANOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="preguntas.html">Enviar mensaje</a>
+                    <a href="citas.html">Agendar cita</a>
+                </div>
+            </TD>
+        </TR>
+    </TABLE>
+ 
+    <BR>
+ 
+    <TABLE WIDTH="80%" CELLPADDING="20">
+      <TR>
+        <TD>
+          <FONT FACE="ARIAL" SIZE="6" COLOR="#033f63">
+            <center><H2>Entretenimiento y Videojuegos</H2></center>
+          </FONT>
+   
+          <div id="entre">
+            <FONT FACE="ARIAL" SIZE="4" COLOR="black">
+              <H3>¡Que la diversión no se detenga! Si te quedaste sin crédito para tus juegos o quieres disfrutar de una película en casa, aquí puedes adquirir tus tarjetas y suscripciones. En Farmacia Santaella tenemos todo para que tú y tu familia pasen momentos increíbles.</P>
+            </FONT>
+
+<div class="tarjeta-entre">
+    <img src="Play.png" alt="tele">
+    <div class="contenido-texto">
+        <b>PlayStation / Xbox Live Gold:</b>
+       <center><p>Membresías y contenido para consolas.</p></center>
+    </div>
+</div>       
+ 
+            <div class="tarjeta-entre">
+    <img src="Nintendo.jpg" alt="tele">
+    <div class="contenido-texto">
+        <b>Nintendo: </b>
+        <center><p>Crédito y suscripciones de videojuegos.</p></center>
+    </div>
+</div>   
+            <div class="tarjeta-entre">
+    <img src="Cinépolis.png" alt="tele">
+    <div class="contenido-texto">
+        <b>Cinépolis / Klic: </b>
+        <center><p>Boletos de cine y renta de películas en línea.</p></center>
+    </div>
+</div>   
+
+            <div class="tarjeta-entre">
+    <img src="Blim.png" alt="tele">
+    <div class="contenido-texto">
+        <b>Blim:</b>
+        <center><p>Servicio de streaming.</p></center>
+    </div>
+</div>   
+          </div>
+        <hr width="100%" SIZE=25 color="55dfd8">
+ 
+          <footer>
+            <B>
+              <FONT FACE="ARIAL" SIZE="4">
+                <center>
+                  <p> ¡VISÍTANOS!</p>
+                </center>
+              </FONT>
+            </B>
+          </footer>
+        </TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+ 
+    <footer style="background-color:#005954; color:white; padding:20px; text-align:center;">
+
+    <h3 style="margin:0 0 15px 0; font-family:Arial; font-weight:bold; line-height:1.2;">
+        FARMACIA SANTAELLA <br>
+        "Al servicio de tu salud"
+    </h3>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        👨‍⚕️ Dr. Juan José Cuevas S. <br>
+        Cédula Profesional: 12741124
+    </p>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        Siguenos en nuestra pagina de facebook: Farmacia Santaella"
+    </p>
+
+    <p style="margin:10px 0 0 0; font-family:Arial; line-height:1.4;">
+        © 2026 Farmacia Santaella - Todos los derechos reservados
+    </p>
+
+</footer>
+
+</BODY>
+
+</HTML>

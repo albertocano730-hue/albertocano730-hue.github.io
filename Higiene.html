@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higiene Personal - Farmacia Santaella</title>
+    <style>
+        td { position: relative; }
+
+        /* --- ESTILOS DE MENÚ UNIFICADOS --- */
+        td { position: relative; }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 999;
+            min-width: 200px;
+            padding: 0;
+        }
+
+        /* Unificación de letra para todos los submenús */
+        .submenu a, .subsubmenu a {
+            display: block;
+            padding: 12px 15px;
+            text-align: left;
+            font-family: "Arial Narrow", Arial, sans-serif; /* Unificado */
+            font-size: 15px;
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: normal;
+        }
+
+        .submenu a:hover, .subsubmenu a:hover {
+            background-color: #e6f7f5;
+            color: #008080;
+        }
+
+        td:hover .submenu {
+            display: block;
+        }
+
+        .submenu-item { position: relative; }
+
+        .submenu-item:hover .subsubmenu {
+            display: block;
+        }
+
+        .subsubmenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-left: -1px;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            min-width: 150px;
+            z-index: 99999;
+        }
+        
+        /* Estilo para los links de la tabla principal */
+        table a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .contenedor-higiene {
+            width: 90%;
+            margin: 30px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .titulo-seccion {
+            background-color: #55dfd8;
+            padding: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tarjeta-higiene {
+            width: 180px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .tarjeta-higiene:hover { transform: scale(1.05); }
+
+        .tarjeta-higiene img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .nombre-higiene {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .boton-info {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #005954;
+            margin-top: 8px;
+        }
+
+        .info-adicional {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            font-size: 12px;
+            color: #333;
+            margin-top: 5px;
+            text-align: justify;
+        }
+
+        .tarjeta-higiene.abierta .info-adicional { max-height: 200px; }
+    </style>
+</head>
+
+<body bgcolor="WHITE">
+    <center>
+        <IMG SRC="ENCABEZADO.BUENO.PNG" WIDTH="100%" height="20%">
+        
+        <hr width="100%" size="25" color="55dfd8">
+         <TABLE BORDER="5" BORDERCOLOR="55dfd8" BGCOLOR="WHITE" WIDTH=100% STYLE="border-collapse: collapse;">
+        <TR>
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="index.html.HTML">INICIO</a>
+                </FONT></B></CENTER>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">FILOSOFÍA</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="quienes-somos.html">Quiénes Somos</a>
+                    <a href="MISION.html">Misión</a>
+                    <a href="VISIÓN.html">Visión</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">SERVICIOS MÉDICOS</a></FONT></B></CENTER>
+          <div class="submenu">
+         <a href="Traumatología.html">Traumatología y Ortopedia</a>
+         <a href="Ginecología.html">Ginecología y Obstetrícia</a>
+         <a href="pediatría.html">Pediatría</a>
+         <a href="Oftalmología.html">Oftalmología</a>
+         <a href="Nutrición.html">Nutrición</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">MEDICAMENTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Medicamentos_patente.html">Patentes</a>
+                    <a href="Medicamentos_genericos.html">Genéricos</a>
+                    <a href="Medicamentos_controlados.html">Controlados</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">PRODUCTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Higiene.html">Higiene personal</a>
+                    <a href="Perfumeria.html">Perfumería</a>
+                    <a href="Bebé.html">Bebés</a>
+                    <div class="submenu-item">
+                        <a href="javascript:void(0)">Abarrotes ▸</a>
+                        <div class="subsubmenu">
+                            <a href="Snacks.html">Snacks</a>
+                            <a href="Bebidas.html">Bebidas</a>
+                        </div>
+                    </div>
+                    <a href="Curacion.html">Material de curación</a>
+                    <a href="Instrumentos.html">Instrumentos médicos</a>
+                    <a href="Vitaminas.html">Vitaminas</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">SUCURSALES</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="colotepec.html">Colotepec</a>
+                    <a href="ortopedico.html">Consultorio Ortopédico</a>
+                    <a href="ventanilla.html">Ventanilla</a>
+                    <a href="puerto.html">Puerto Escondido</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">PAGO DE SERVICIOS</a></FONT></B></CENTER>
+          <div class="submenu">
+            <a href="HOGAR Y ENERGÍA.html">Hogar y Energía</a>
+            <a href="TELECOMUNICACIONES.html">Telecomunicaciones</a>
+            <a href="ENTRETENIMIENTO.html">Entretenimiento</a>
+            <a href="VENTA POR CATÁLOGO.html">Venta por catálogo</a>
+            <a href="RECARGAS TELEFÓNICAS.html">Recargas Telefónicas</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">CONTÁCTANOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="preguntas.html">Enviar mensaje</a>
+                    <a href="citas.html">Agendar cita</a>
+                </div>
+            </TD>
+        </TR>
+    </TABLE>
+    </center>
+
+    <div class="contenedor-higiene">
+        
+        <!-- 1. CUIDADO FACIAL (14 FOTOS) -->
+<div class="titulo-seccion">Cuidado Facial</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial1.jpeg">
+        <div class="nombre-higiene">Garnier Limpieza Profunda</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Control de grasa y limpieza facial</b></p>
+            <p><b>Uso diario</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial2.jpeg">
+        <div class="nombre-higiene">Garnier Purificante</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Limpieza purificante para el rostro</b></p>
+            <p><b>Piel mixta a grasa</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial3.jpeg">
+        <div class="nombre-higiene">Garnier Sérum Booster</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Hidratación y brillo facial</b></p>
+            <p><b>Fórmula ligera</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial4.jpeg">
+        <div class="nombre-higiene">Garnier Pimple Patch</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Parche invisible para granos</b></p>
+            <p><b>Protección rápida</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial5.jpeg">
+        <div class="nombre-higiene">Neutrogena Hydro Boost</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Gel hidratante facial</b></p>
+            <p><b>Con ácido hialurónico</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial6.jpeg">
+        <div class="nombre-higiene">Eucerin Facial</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Cuidado e hidratación facial</b></p>
+            <p><b>Uso dermatológico</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial7.jpeg">
+        <div class="nombre-higiene">Neutrogena Oil-Free</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Fórmula libre de aceite</b></p>
+            <p><b>Ideal para piel grasa</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial8.jpeg">
+        <div class="nombre-higiene">Agua Micelar Vitamina C</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Limpieza y luminosidad facial</b></p>
+            <p><b>Con vitamina C</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial9.jpeg">
+        <div class="nombre-higiene">La Roche-Posay C12</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Sérum antioxidante facial</b></p>
+            <p><b>Vitamina C pura</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial10.jpeg">
+        <div class="nombre-higiene">L'Oréal Anti-Manchas</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Gel limpiador facial</b></p>
+            <p><b>Ayuda a reducir manchas</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial11.jpeg">
+        <div class="nombre-higiene">Neutrogena Purified Skin</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Limpieza profunda del rostro</b></p>
+            <p><b>Refresca la piel</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial12.jpeg">
+        <div class="nombre-higiene">CeraVe Foaming Oil</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Limpiador espumoso hidratante</b></p>
+            <p><b>Para piel sensible</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial13.jpeg">
+        <div class="nombre-higiene">CeraVe Retinol Sérum</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Reduce marcas y textura</b></p>
+            <p><b>Con retinol facial</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cuidadofacial14.jpeg">
+        <div class="nombre-higiene">L'Oréal Uniformizador</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Sérum anti-manchas facial</b></p>
+            <p><b>Tono uniforme y brillo</b></p>
+            </center>
+        </div>
+    </div>
+
+
+        </div>
+
+       <!-- 2. CUIDADO CORPORAL (8 FOTOS) -->
+<div class="titulo-seccion">Cuidado Corporal (Piel)</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal1.jpeg">
+        <div class="nombre-higiene">CeraVe Imperfecciones</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Limpiador para piel con imperfecciones</b></p>
+            <p><b>Control de grasa y acné</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal2.jpeg">
+        <div class="nombre-higiene">Nivea Derma Clear</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Cuidado corporal anti-imperfecciones</b></p>
+            <p><b>Ayuda a limpiar la piel</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal3.jpeg">
+        <div class="nombre-higiene">Nuvel Humectante</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Crema corporal humectante</b></p>
+            <p><b>Suaviza e hidrata la piel</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal4.jpeg">
+        <div class="nombre-higiene">CeraVe Hidratante</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Crema hidratante corporal</b></p>
+            <p><b>Con ceramidas esenciales</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal5.jpeg">
+        <div class="nombre-higiene">Dove Barra Humectante</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Jabón en barra hidratante</b></p>
+            <p><b>Limpieza suave para la piel</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal6.jpeg">
+        <div class="nombre-higiene">Asepxia Antiacné</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Jabón facial y corporal</b></p>
+            <p><b>Ayuda a combatir el acné</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal7.jpeg">
+        <div class="nombre-higiene">Palmolive Suavizante</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Jabón corporal en barra</b></p>
+            <p><b>Con aroma y suavidad</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="CuidadoCorporal8.jpeg">
+        <div class="nombre-higiene">Lubriderm Hidratación</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Loción corporal hidratante</b></p>
+            <p><b>Humectación de larga duración</b></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+        <!-- 3. CUIDADO DEL CABELLO (12 FOTOS) -->
+<div class="titulo-seccion">Cuidado del Cabello</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello1.jpeg">
+        <div class="nombre-higiene">Pantene Restauración</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Shampoo fortalecedor capilar</b></p>
+            <p><b>Brillo y suavidad</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello2.jpeg">
+        <div class="nombre-higiene">Sedal Hidratación</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Shampoo para cabello suave</b></p>
+            <p><b>Limpieza e hidratación</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello3.jpeg">
+        <div class="nombre-higiene">Head & Shoulders</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Shampoo anti-caspa</b></p>
+            <p><b>Frescura y limpieza profunda</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello4.jpeg">
+        <div class="nombre-higiene">Xtreme Fijación</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Gel para peinar</b></p>
+            <p><b>Fijación de larga duración</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello5.jpeg">
+        <div class="nombre-higiene">Nutrisse Color</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Tinte nutritivo para cabello</b></p>
+            <p><b>Color intenso y brillo</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello6.jpeg">
+        <div class="nombre-higiene">Ego Fijación</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Gel para estilizar el cabello</b></p>
+            <p><b>Control y definición</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello7.jpeg">
+        <div class="nombre-higiene">Palmolive Brillantina</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Brillo y suavidad capilar</b></p>
+            <p><b>Peinado con acabado brillante</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello8.jpeg">
+        <div class="nombre-higiene">Elvive Reparación</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Cuidado reparador para cabello</b></p>
+            <p><b>Fortalece y protege</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello9.jpeg">
+        <div class="nombre-higiene">Garnier Peinado</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Crema para peinar</b></p>
+            <p><b>Controla el frizz</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello10.jpeg">
+        <div class="nombre-higiene">Hair Food Nutrición</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Mascarilla nutritiva capilar</b></p>
+            <p><b>Hidratación profunda</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello11.jpeg">
+        <div class="nombre-higiene">Caprice Restauración</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Shampoo para cabello dañado</b></p>
+            <p><b>Suavidad y reparación</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Cabello12.jpeg">
+        <div class="nombre-higiene">Sedal Peinado</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Crema para peinar hidratante</b></p>
+            <p><b>Cabello suave y manejable</b></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+       <!-- 4. HIGIENE BUCAL (6 FOTOS) -->
+<div class="titulo-seccion">Higiene Bucal</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal1.jpeg">
+        <div class="nombre-higiene">Cepillo Colgate</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Cepillo para limpieza dental</b></p>
+            <p><b>Ayuda a cuidar encías y dientes</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal2.jpeg">
+        <div class="nombre-higiene">Colgate Enjuague</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Enjuague bucal refrescante</b></p>
+            <p><b>Combate bacterias y mal aliento</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal3.jpeg">
+        <div class="nombre-higiene">Listerine Fresh</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Enjuague bucal antiséptico</b></p>
+            <p><b>Protección y frescura prolongada</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal4.jpeg">
+        <div class="nombre-higiene">Oral-B Cepillo</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Cepillo dental de limpieza profunda</b></p>
+            <p><b>Cuidado diario bucal</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal5.jpeg">
+        <div class="nombre-higiene">Colgate Protección</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Crema dental con flúor</b></p>
+            <p><b>Protección contra caries</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Bucal6.jpeg">
+        <div class="nombre-higiene">Oral-B Clean</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Pasta dental para limpieza bucal</b></p>
+            <p><b>Dientes limpios y frescos</b></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+       <!-- 5. HIGIENE ÍNTIMA FEMENINA (4 FOTOS) -->
+<div class="titulo-seccion">Higiene Íntima Femenina</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="Intima1.jpeg">
+        <div class="nombre-higiene">Kotex Nocturna</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Toalla femenina nocturna</b></p>
+            <p><b>Protección y absorción prolongada</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Intima2.jpeg">
+        <div class="nombre-higiene">Kotex Tampones</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Protección íntima femenina</b></p>
+            <p><b>Comodidad y absorción segura</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Intima3.jpeg">
+        <div class="nombre-higiene">Saba Tampones</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Higiene femenina discreta</b></p>
+            <p><b>Absorción y protección diaria</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Intima4.jpeg">
+        <div class="nombre-higiene">Saba Nocturna</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Toalla femenina para noche</b></p>
+            <p><b>Mayor cobertura y comodidad</b></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+    <!-- 6. SALUD SEXUAL (3 FOTOS) -->
+<div class="titulo-seccion">Salud Sexual</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="Sexual1.jpeg">
+        <div class="nombre-higiene">Variedad Sico</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Diferentes tipos de condones Sico</b></p>
+            <p><b>Protección y variedad de sensaciones</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Sexual2.jpeg">
+        <div class="nombre-higiene">Variedad Prudence</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Condones Prudence surtidos</b></p>
+            <p><b>Distintos estilos y protección</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="Sexual3.jpeg">
+        <div class="nombre-higiene">Variedad M</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Diversos condones marca M</b></p>
+            <p><b>Seguridad y comodidad íntima</b></p>
+            </center>
+        </div>
+    </div>
+
+</div>
+
+        <!-- 7. HIGIENE PERSONAL GENERAL (5 FOTOS) -->
+<div class="titulo-seccion">Higiene Personal General</div>
+<div class="galeria">
+
+    <div class="tarjeta-higiene">
+        <img src="General1.jpeg">
+        <div class="nombre-higiene">Sprays Nivea</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Variedad de desodorantes en spray</b></p>
+            <p><b>Protección y frescura diaria</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="General2.jpeg">
+        <div class="nombre-higiene">Nivea Barra</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Desodorantes en barra Nivea</b></p>
+            <p><b>Cuidado y protección corporal</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="General3.jpeg">
+        <div class="nombre-higiene">Sprays Rexona</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Variedad de desodorantes Rexona</b></p>
+            <p><b>Control de sudor y olor</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="General4.jpeg">
+        <div class="nombre-higiene">Toallitas Nivea</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Toallitas desmaquillantes faciales</b></p>
+            <p><b>Limpieza suave y refrescante</b></p>
+            </center>
+        </div>
+    </div>
+
+    <div class="tarjeta-higiene">
+        <img src="General5.jpeg">
+        <div class="nombre-higiene">Rexona Barra</div>
+        <button class="boton-info" onclick="toggleInfo(this)">▼</button>
+        <div class="info-adicional">
+            <center>
+            <p><b>Desodorantes Rexona en barra</b></p>
+            <p><b>Protección prolongada</b></p>
+            </center>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    <footer style="background-color:#005954; color:white; padding:20px; text-align:center;">
+
+    <h3 style="margin:0 0 15px 0; font-family:Arial; font-weight:bold; line-height:1.2;">
+        FARMACIA SANTAELLA <br>
+        "Al servicio de tu salud"
+    </h3>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        👨‍⚕️ Dr. Juan José Cuevas S. <br>
+        Cédula Profesional: 12741124
+    </p>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        Siguenos en nuestra pagina de facebook: Farmacia Santaella"
+    </p>
+
+    <p style="margin:10px 0 0 0; font-family:Arial; line-height:1.4;">
+        © 2026 Farmacia Santaella - Todos los derechos reservados
+    </p>
+
+</footer>
+
+    <script>
+        function toggleInfo(boton) {
+            let tarjeta = boton.parentElement;
+            tarjeta.classList.toggle("abierta");
+            boton.innerHTML = tarjeta.classList.contains("abierta") ? "▲" : "▼";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<HTML>
+
+<HEAD>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visión - Farmacia Santaella</title>
+
+  <style>
+
+    /* ================= MENÚ Y SUBMENÚ ================= */
+
+    td { position: relative; }
+
+    .submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid #55dfd8;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 999;
+      min-width: 200px;
+      padding: 0;
+    }
+
+    .submenu a,
+    .subsubmenu a {
+      display: block;
+      padding: 12px 15px;
+      text-align: left;
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 15px;
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid #f0f0f0;
+      font-weight: normal;
+    }
+
+    .submenu a:hover,
+    .subsubmenu a:hover {
+      background-color: #e6f7f5;
+      color: #008080;
+    }
+
+    td:hover .submenu {
+      display: block;
+    }
+
+    .submenu-item {
+      position: relative;
+    }
+
+    .submenu-item:hover .subsubmenu {
+      display: block;
+    }
+
+    .subsubmenu {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      margin-left: -1px;
+      background-color: #ffffff;
+      border: 1px solid #55dfd8;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      display: none;
+      min-width: 150px;
+      z-index: 99999;
+    }
+
+    table a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* ================= ESTILO GENERAL ================= */
+
+    body{
+      margin:0;
+      padding:0;
+      background-color:#f4f7f6;
+      font-family:'Segoe UI', Arial, sans-serif;
+    }
+
+    /* ================= CONTENIDO VISIÓN ================= */
+
+    .seccion-vision{
+      width:90%;
+      max-width:1100px;
+      margin:50px auto;
+    }
+
+    .encabezado-vision{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .encabezado-vision h1{
+      font-size:55px;
+      color:#005954;
+      margin-bottom:10px;
+      letter-spacing:3px;
+    }
+
+    .encabezado-vision p{
+      font-size:22px;
+      color:#008080;
+      font-style:italic;
+    }
+
+    .intro-vision{
+      background:linear-gradient(135deg,#e8fffd,#ffffff);
+      border-left:8px solid #55dfd8;
+      padding:35px;
+      border-radius:20px;
+      font-size:22px;
+      text-align:center;
+      line-height:1.8;
+      color:#444;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .bloque-info{
+      margin-top:60px;
+    }
+
+    .titulo-seccion{
+      font-size:34px;
+      color:#005954;
+      margin-bottom:25px;
+      text-align:center;
+      position:relative;
+    }
+
+    .titulo-seccion::after{
+      content:"";
+      width:120px;
+      height:4px;
+      background-color:#55dfd8;
+      display:block;
+      margin:15px auto;
+      border-radius:10px;
+    }
+
+    .texto-vision{
+      font-size:19px;
+      line-height:1.9;
+      color:#444;
+      text-align:justify;
+      background-color:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .tarjetas-vision{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .tarjeta-v{
+      background-color:white;
+      padding:35px;
+      border-radius:25px;
+      text-align:center;
+      transition:0.3s;
+      box-shadow:0 10px 20px rgba(0,0,0,0.05);
+      border-top:6px solid #55dfd8;
+    }
+
+    .tarjeta-v:hover{
+      transform:translateY(-10px);
+      box-shadow:0 18px 30px rgba(0,89,84,0.15);
+    }
+
+    .icono-v{
+      font-size:50px;
+      margin-bottom:15px;
+    }
+
+    .tarjeta-v h3{
+      color:#005954;
+      margin-bottom:15px;
+      font-size:26px;
+    }
+
+    .tarjeta-v p{
+      font-size:17px;
+      line-height:1.7;
+      color:#555;
+    }
+
+    .lista-vision{
+      margin-top:40px;
+      background-color:white;
+      padding:40px;
+      border-radius:25px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .lista-vision ul{
+      list-style:none;
+      padding:0;
+    }
+
+    .lista-vision li{
+      font-size:19px;
+      margin-bottom:18px;
+      padding-left:40px;
+      position:relative;
+      line-height:1.7;
+    }
+
+    .lista-vision li::before{
+      content:"✔";
+      position:absolute;
+      left:0;
+      color:#008080;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .banner-vision{
+      margin-top:60px;
+      background:linear-gradient(135deg,#008080,#005954);
+      color:white;
+      padding:60px 40px;
+      border-radius:30px;
+      text-align:center;
+    }
+
+    .banner-vision h2{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .banner-vision p{
+      font-size:20px;
+      line-height:1.9;
+      max-width:850px;
+      margin:auto;
+    }
+
+    footer{
+      margin-top:60px;
+    }
+
+    @media(max-width:768px){
+
+      .encabezado-vision h1{
+        font-size:40px;
+      }
+
+      .intro-vision{
+        font-size:19px;
+        padding:25px;
+      }
+
+      .texto-vision{
+        padding:25px;
+      }
+
+      .banner-vision h2{
+        font-size:30px;
+      }
+
+    }
+
+  </style>
+</HEAD>
+
+<BODY>
+
+<CENTER>
+
+  <IMG SRC="ENCABEZADO.BUENO.PNG" WIDTH="100%" height="20%">
+
+  <HR WIDTH="100%" SIZE="25" COLOR="55dfd8">
+
+  <TABLE BORDER="5" BORDERCOLOR="55dfd8" BGCOLOR="WHITE" WIDTH="100%" STYLE="border-collapse: collapse;">
+
+    <TR>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="index.html.HTML">INICIO</a>
+        </FONT></B></CENTER>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">FILOSOFÍA</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="quienes-somos.html">Quiénes Somos</a>
+          <a href="MISION.html">Misión</a>
+          <a href="VISIÓN.html">Visión</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">SERVICIOS MÉDICOS</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="Traumatología.html">Traumatología y Ortopedia</a>
+          <a href="Ginecología.html">Ginecología y Obstetrícia</a>
+          <a href="pediatría.html">Pediatría</a>
+          <a href="Oftalmología.html">Oftalmología</a>
+          <a href="Nutrición.html">Nutrición</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">MEDICAMENTOS</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="Medicamentos_patente.html">Patentes</a>
+          <a href="Medicamentos_genericos.html">Genéricos</a>
+          <a href="Medicamentos_controlados.html">Controlados</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">PRODUCTOS</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="Higiene.html">Higiene personal</a>
+          <a href="Perfumeria.html">Perfumería</a>
+          <a href="Bebé.html">Bebés</a>
+
+          <div class="submenu-item">
+            <a href="javascript:void(0)">Abarrotes ▸</a>
+
+            <div class="subsubmenu">
+              <a href="Snacks.html">Snacks</a>
+              <a href="Bebidas.html">Bebidas</a>
+            </div>
+          </div>
+
+          <a href="Curacion.html">Material de curación</a>
+          <a href="Instrumentos.html">Instrumentos médicos</a>
+          <a href="Vitaminas.html">Vitaminas</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">SUCURSALES</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="colotepec.html">Colotepec</a>
+          <a href="ortopedico.html">Consultorio Ortopédico</a>
+          <a href="ventanilla.html">Ventanilla</a>
+          <a href="puerto.html">Puerto Escondido</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">PAGO DE SERVICIOS</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="HOGAR Y ENERGÍA.html">Hogar y Energía</a>
+          <a href="TELECOMUNICACIONES.html">Telecomunicaciones</a>
+          <a href="ENTRETENIMIENTO.html">Entretenimiento</a>
+          <a href="VENTA POR CATÁLOGO.html">Venta por catálogo</a>
+          <a href="RECARGAS TELEFÓNICAS.html">Recargas Telefónicas</a>
+        </div>
+      </TD>
+
+      <TD>
+        <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+          <a href="javascript:void(0)">CONTÁCTANOS</a>
+        </FONT></B></CENTER>
+
+        <div class="submenu">
+          <a href="preguntas.html">Enviar mensaje</a>
+          <a href="citas.html">Agendar cita</a>
+        </div>
+      </TD>
+
+    </TR>
+
+  </TABLE>
+
+</CENTER>
+
+<!-- ================= CONTENIDO VISIÓN ================= -->
+
+<div class="seccion-vision">
+
+  <div class="encabezado-vision">
+    <h1>NUESTRA VISIÓN</h1>
+    <p>Crecimiento cercano para nuestra comunidad</p>
+  </div>
+
+  <div class="intro-vision">
+    "Seguir creciendo como una farmacia confiable y cercana para las familias de Puerto Escondido, Colotepec y Ventanilla, ofreciendo atención humana, productos accesibles y servicios de salud que realmente ayuden a nuestra comunidad."
+  </div>
+
+  <div class="bloque-info">
+
+    <h2 class="titulo-seccion">¿Hacia dónde queremos llegar?</h2>
+
+    <div class="texto-vision">
+
+      <p>
+        En <strong>Farmacia Santaella</strong>, nuestra visión está enfocada en continuar fortaleciendo la confianza que las familias de la costa de Oaxaca han depositado en nosotros. Queremos seguir creciendo de manera responsable, manteniendo siempre el trato cercano y humano que nos caracteriza.
+      </p>
+
+      <p>
+        Más que convertirnos en una gran cadena farmacéutica, buscamos consolidarnos como una farmacia regional reconocida por su atención amable, precios accesibles y compromiso real con la salud de la comunidad.
+      </p>
+
+      <p>
+        Aspiramos a mejorar constantemente nuestras sucursales en <strong>Puerto Escondido, Santa María Colotepec y Ventanilla</strong>, ampliando poco a poco nuestros servicios y ofreciendo cada vez más opciones para cubrir las necesidades médicas y farmacéuticas de nuestros clientes.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="tarjetas-vision">
+
+    <div class="tarjeta-v">
+      <div class="icono-v">🏥</div>
+      <h3>Mayor Cercanía</h3>
+
+      <p>
+        Seguir siendo una farmacia accesible y de confianza para las familias de nuestra región.
+      </p>
+    </div>
+
+    <div class="tarjeta-v">
+      <div class="icono-v">💊</div>
+      <h3>Mejor Surtido</h3>
+
+      <p>
+        Incrementar gradualmente nuestra variedad de medicamentos y productos esenciales para la comunidad.
+      </p>
+    </div>
+
+    <div class="tarjeta-v">
+      <div class="icono-v">🤝</div>
+      <h3>Atención Humana</h3>
+
+      <p>
+        Mantener siempre un trato cálido, respetuoso y responsable con cada persona que nos visita.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="lista-vision">
+
+    <h2 class="titulo-seccion">Lo que buscamos lograr</h2>
+
+    <ul>
+      <li>Continuar creciendo dentro de la región de la costa de Oaxaca.</li>
+
+      <li>Fortalecer nuestros servicios médicos y farmacéuticos.</li>
+
+      <li>Seguir ofreciendo medicamentos accesibles para la comunidad.</li>
+
+      <li>Mantener instalaciones limpias, seguras y organizadas.</li>
+
+      <li>Capacitar constantemente a nuestro personal.</li>
+
+      <li>Brindar una atención rápida y amable en cada sucursal.</li>
+    </ul>
+
+  </div>
+
+  <div class="banner-vision">
+
+    <h2>Comprometidos con Nuestro Futuro</h2>
+
+    <p>
+      En Farmacia Santaella seguiremos trabajando día con día para crecer junto a nuestra comunidad, manteniendo siempre nuestro compromiso de estar cerca de las familias que confían en nosotros.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- ================= FOOTER ORIGINAL ================= -->
+
+<footer style="background-color:#005954; color:white; padding:20px; text-align:center;">
+
+  <h3 style="margin:0 0 15px 0; font-family:Arial; font-weight:bold; line-height:1.2;">
+    FARMACIA SANTAELLA <br>
+    "Al servicio de tu salud"
+  </h3>
+
+  <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+    👨‍⚕️ Dr. Juan José Cuevas S. <br>
+    Cédula Profesional: 12741124
+  </p>
+
+  <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+    Síguenos en nuestra página de Facebook: Farmacia Santaella
+  </p>
+
+  <p style="margin:10px 0 0 0; font-family:Arial; line-height:1.4;">
+    © 2026 Farmacia Santaella - Todos los derechos reservados
+  </p>
+
+</footer>
+
+</BODY>
+
+</HTML>
