@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Farmacia Santaella</title>
+
+    <style>
+         /* --- ESTILOS DE MENÚ UNIFICADOS --- */
+        td { position: relative; }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 999;
+            min-width: 200px;
+            padding: 0;
+        }
+
+        /* Unificación de letra para todos los submenús */
+        .submenu a, .subsubmenu a {
+            display: block;
+            padding: 12px 15px;
+            text-align: left;
+            font-family: "Arial Narrow", Arial, sans-serif; /* Unificado */
+            font-size: 15px;
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: normal;
+        }
+
+        .submenu a:hover, .subsubmenu a:hover {
+            background-color: #e6f7f5;
+            color: #008080;
+        }
+
+        td:hover .submenu {
+            display: block;
+        }
+
+        .submenu-item { position: relative; }
+
+        .submenu-item:hover .subsubmenu {
+            display: block;
+        }
+
+        .subsubmenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-left: -1px;
+            background-color: #ffffff;
+            border: 1px solid #55dfd8;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+            min-width: 150px;
+            z-index: 99999;
+        }
+        
+        /* Estilo para los links de la tabla principal */
+        table a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* --- ESTILOS NO MODIFICADOS --- */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            margin: 0;
+        }
+
+        main {
+            max-width: 900px; /* Un poco más estrecho para que el formulario se vea mejor */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e8b8b;
+            font-size: 36px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* MEJORA DEL CONTENEDOR DEL FORMULARIO */
+        .form-contenedor {
+            width: 100%;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0f0f0;
+        }
+
+        /* DISEÑO PARA LOS CAMPOS */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2e8b8b;
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        /* ESTILO DE INPUTS Y SELECTS */
+        .form-contenedor input,
+        .form-contenedor select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 2px solid #e8e8e8;
+            font-size: 15px;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-contenedor input:focus,
+        .form-contenedor select:focus {
+            border-color: #55dfd8;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(85, 223, 216, 0.2);
+        }
+
+        /* EL BOTÓN OCUPA TODO EL ANCHO */
+        .btn-full {
+            grid-column: span 2;
+            margin-top: 20px;
+        }
+
+        .form-contenedor button {
+            background: linear-gradient(135deg, #2e8b8b, #55dfd8);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(46, 139, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .form-contenedor button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 139, 139, 0.4);
+            filter: brightness(1.05);
+        }
+
+        /* RESPONSIVO PARA MÓVILES */
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-full {
+                grid-column: span 1;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <CENTER>
+        <IMG SRC="ENCABEZADO.BUENO.PNG" WIDTH="100%" height="20%">
+        
+        <HR WIDTH="100%" SIZE=25 COLOR="55dfd8">
+        <TABLE BORDER="5" BORDERCOLOR="55dfd8" BGCOLOR="WHITE" WIDTH=100% STYLE="border-collapse: collapse;">
+        <TR>
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="INICIO.HTML">INICIO</a>
+                </FONT></B></CENTER>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">FILOSOFÍA</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="quienes-somos.html">Quiénes Somos</a>
+                    <a href="MISION.html">Misión</a>
+                    <a href="VISIÓN.html">Visión</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">SERVICIOS MÉDICOS</a></FONT></B></CENTER>
+          <div class="submenu">
+         <a href="Traumatología.html">Traumatología y Ortopedia</a>
+         <a href="Ginecología.html">Ginecología y Obstetrícia</a>
+         <a href="pediatría.html">Pediatría</a>
+         <a href="Oftalmología.html">Oftalmología</a>
+         <a href="Nutrición.html">Nutrición</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">MEDICAMENTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Medicamentos_patente.html">Patentes</a>
+                    <a href="Medicamentos_genericos.html">Genéricos</a>
+                    <a href="Medicamentos_controlados.html">Controlados</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">PRODUCTOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="Higiene.html">Higiene personal</a>
+                    <a href="Perfumeria.html">Perfumería</a>
+                    <a href="Bebé.html">Bebés</a>
+                    <div class="submenu-item">
+                        <a href="javascript:void(0)">Abarrotes ▸</a>
+                        <div class="subsubmenu">
+                            <a href="Snacks.html">Snacks</a>
+                            <a href="Bebidas.html">Bebidas</a>
+                        </div>
+                    </div>
+                    <a href="Curacion.html">Material de curación</a>
+                    <a href="Instrumentos.html">Instrumentos médicos</a>
+                    <a href="Vitaminas.html">Vitaminas</a>
+                </div>
+            </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">SUCURSALES</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="colotepec.html">Colotepec</a>
+                    <a href="ortopedico.html">Consultorio Ortopédico</a>
+                    <a href="ventanilla.html">Ventanilla</a>
+                    <a href="puerto.html">Puerto Escondido</a>
+                </div>
+            </TD>
+
+            <TD>
+          <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW"><a href="javascript:void(0)" style="text-decoration:none; color:black;">PAGO DE SERVICIOS</a></FONT></B></CENTER>
+          <div class="submenu">
+            <a href="HOGAR Y ENERGÍA.html">Hogar y Energía</a>
+            <a href="TELECOMUNICACIONES.html">Telecomunicaciones</a>
+            <a href="ENTRETENIMIENTO.html">Entretenimiento</a>
+            <a href="VENTA POR CATÁLOGO.html">Venta por catálogo</a>
+            <a href="RECARGAS TELEFÓNICAS.html">Recargas Telefónicas</a>
+          </div>
+        </TD>
+
+            <TD>
+                <CENTER><B><FONT SIZE="4" FACE="ARIAL NARROW">
+                    <a href="javascript:void(0)">CONTÁCTANOS</a>
+                </FONT></B></CENTER>
+                <div class="submenu">
+                    <a href="preguntas.html">Enviar mensaje</a>
+                    <a href="citas.html">Agendar cita</a>
+                </div>
+            </TD>
+        </TR>
+    </TABLE>
+    </CENTER>
+
+    <main>
+        <h1>AGENDAR CITA</h1>
+        <p class="intro-text">
+            Completa el siguiente formulario para reservar tu espacio. Recibirás una confirmación por WhatsApp y correo.
+        </p>
+
+        <div class="form-contenedor">
+            <form onsubmit="agendarCita(event)" class="form-grid">
+                
+                <div class="form-group">
+                    <label>Nombre del Paciente</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono de Contacto</label>
+                    <input type="tel" id="telefono" placeholder="954 000 0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Sucursal</label>
+                    <select id="sucursal" required>
+                        <option value="">Selecciona una opción</option>
+                        <option>Colotepec</option>
+                        <option>Ventanilla</option>
+                        <option>Puerto Escondido</option>
+                        <option>Consultorio Ortopédico</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de Servicio</label>
+                    <select id="servicio" required>
+                        <option value="">Selecciona una opción</option>
+                        <option>Consulta médica general</option>
+                        <option>Ortopedia y Traumatología</option>
+                        <option>Revisión de rutina</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha deseada</label>
+                    <input type="date" id="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Hora preferente</label>
+                    <input type="time" id="hora" required>
+                </div>
+
+                <div class="btn-full">
+                    <button type="submit">Confirmar Reservación</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+</div>
+
+    <!-- FOOTER -->
+
+<footer style="background-color:#005954; color:white; padding:20px; text-align:center;">
+
+    <h3 style="margin:0 0 15px 0; font-family:Arial; font-weight:bold; line-height:1.2;">
+        FARMACIA SANTAELLA <br>
+        "Al servicio de tu salud"
+    </h3>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        👨‍⚕️ Dr. Juan José Cuevas S. <br>
+        Cédula Profesional: 12741124
+    </p>
+
+    <p style="margin:10px 0; font-family:Arial; line-height:1.4;">
+        Siguenos en nuestra pagina de facebook: Farmacia Santaella"
+    </p>
+
+    <p style="margin:10px 0 0 0; font-family:Arial; line-height:1.4;">
+        © 2026 Farmacia Santaella - Todos los derechos reservados
+    </p>
+
+</footer>
+
+
+    <script>
+        function agendarCita(e) {
+            e.preventDefault();
+
+            let nombre = document.getElementById("nombre").value;
+            let telefono = document.getElementById("telefono").value;
+            let sucursal = document.getElementById("sucursal").value;
+            let servicio = document.getElementById("servicio").value;
+            let fecha = document.getElementById("fecha").value;
+            let hora = document.getElementById("hora").value;
+
+            let texto = "*SOLICITUD DE CITA MÉDICA*%0A%0A" +
+                "*Nombre:* " + nombre + "%0A" +
+                "*Teléfono:* " + telefono + "%0A" +
+                "*Sucursal:* " + sucursal + "%0A" +
+                "*Servicio:* " + servicio + "%0A" +
+                "*Fecha:* " + fecha + "%0A" +
+                "*Hora:* " + hora;
+
+            window.open("https://wa.me/529541375119?text=" + texto, "_blank");
+            window.location.href = "mailto:santaella-cuevas@hotmail.com?subject=Nueva Cita Médica&body=" + texto;
+        }
+    </script>
+
+</body>
+</html>
